@@ -19,11 +19,11 @@ export default function App() {
       </header>
       <h5>
         Coded by July Lystopadska and is {""}
-        <a href="https://githttps://github.com/JuyLy/Weather-App-Reacthub.com/JuyLy/Weather-Apphttps://github.com/JuyLy/Weather-App-React">
+        <a href="https://github.com/JuyLy/react-weather-app">
           open-sounded on CitHub
         </a>
         {""} and {""}
-        <a href="https://https://remarkable-blancmange-040ff6.netlify.app/-longma-941a77.netlify.app/://app.netlify.com/teams/juyly/overview">
+        <a href="https://remarkable-blancmange-040ff6.netlify.app/">
           hosted on Netlify
         </a>
       </h5>
