@@ -1,0 +1,17 @@
+header {
+  border: 2px solid rgb(142, 177, 207);
+  max-width: 800px;
+  height: 430px;
+  margin: 70px 150px;
+}
+
+h5 {
+  position: absolute;
+  margin-top: -50px;
+  left: 150px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+}
