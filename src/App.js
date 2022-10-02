@@ -2,8 +2,6 @@ import React from "react";
 import "./App.css";
 
 import Form from "./Form";
-import Weather from "./Weather";
-import Forecast from "./Forecast";
 
 export default function App() {
   return (
@@ -11,9 +9,7 @@ export default function App() {
       <header>
         <div className="container">
           <div className="weather-app">
-            <Form />
-            <Weather />
-            <Forecast />
+            <Form defaultCity="Kharkiv" />
           </div>
         </div>
       </header>
