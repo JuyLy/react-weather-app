@@ -29,7 +29,7 @@ return (
 <span className="weather-forecast-temperature-max"> {maxTemperature()} </span>/
 <span className="weather-forecast-temperature-min"> {minTemperature()} </span>
     </div>
-    <WeatherIcon code={props.data.weather[0].icon} size={42} />
+    <p className="mt-2"><WeatherIcon code={props.data.weather[0].icon} size={42} /></p>
 </div>
 );
 }
