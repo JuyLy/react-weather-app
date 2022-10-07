@@ -1,89 +1,40 @@
-import React from "react";
-import "./Forecast.css";
+import React, { useState } from "react";
+import DailyForecast from "./DailyForecast";
+import "./DailyForecast.css";
+import axios from "axios";
 
-export default function Forecast() {
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+  
+  function handleResponse(response) {
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
     return (
-<div class="weekdays" id="forecast">
-<div className="row">
-<div className="col-2">
-<h6>
- Mon
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 12° </span>/
-<span className="weather-forecast-temperature-min"> 5° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-<div className="col-2 me-0">
-<h6>
- Tue
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 13° </span>/
-<span className="weather-forecast-temperature-min"> 10° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-<div className="col-2">
-<h6>
- Wed
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 14° </span>/
-<span className="weather-forecast-temperature-min"> 9° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-<div className="col-2">
-<h6>
- Thu
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 8° </span>/
-<span className="weather-forecast-temperature-min"> 5° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-<div className="col-2">
-<h6>
- Fri
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 18° </span>/
-<span className="weather-forecast-temperature-min"> 10° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-<div className="col-2">
-<h6>
- Sat
-</h6>
-<div className="weather-forecast-temperature">
-<span className="weather-forecast-temperature-max"> 15° </span>/
-<span className="weather-forecast-temperature-min"> 8° </span>
-    </div>
-    <img
-      src="https://www.iconattitude.com/icons/open_icon_library/status/png/256/weather-few-clouds.png"              alt="Icon"
-      width="48"
-    />
-</div>
-</div>
-</div>
-);
-}
+      <div className="Forecast">
+      <div className="weekdays" id="forecast">
+      <div className="row">
+        {forecast.map(function (dailyForecast, index) {
+         if (index < 5) {
+          return (
+            <div className="col" key={index}>
+              <DailyForecast data={dailyForecast} />
+            </div>
+          );
+         }
+         return null;
+        })}
+        </div>
+        </div>
+        </div>
+        );
+      } else {
+          let longitude = props.coordinates.lon;
+          let latitude = props.coordinates.lat;
+          let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=e3a777fc1d55e0a271349e7b53f228c1&units=metric`;
+          axios.get(url).then(handleResponse)
+        }
+      }
