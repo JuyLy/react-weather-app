@@ -46,8 +46,8 @@ export default function Form(props) {
           <input
             type="search"
             placeholder="Type a city.."
-            autofocus="on"
-            autocomplete="off"
+            autoFocus="on"
+            autoComplete="off"
             id="city-input"
             className="form-control shadow-sm"
             onChange={updateCity}

@@ -25,7 +25,7 @@ return (
 <h6>
  {day()}
 </h6>
-<div className="weather-forecast-temperature">
+<div className="weather-forecast-temperature mt-3">
 <span className="weather-forecast-temperature-max"> {maxTemperature()} </span>/
 <span className="weather-forecast-temperature-min"> {minTemperature()} </span>
     </div>

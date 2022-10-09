@@ -4,6 +4,10 @@ h6 {
 }
 
 .weekdays {
-    margin-top: 20px;
+    margin-top: 5px;
     text-align: center;
   }
+
+.weather-forecast-temperature {
+    color: #686565;
+}
